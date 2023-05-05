@@ -2,6 +2,7 @@ package com.example.demo;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +16,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class UsuarioController {
 	
+	@Autowired
 	UsuarioRepository repository;
 	
 	@GetMapping("/usuario")
@@ -29,6 +31,7 @@ public class UsuarioController {
 	
 	@PostMapping("/usuario")
 	public Usuario saveUsuario(@RequestBody Usuario usuario) {
+		System.out.println(usuario);
 		return repository.save(usuario);
 		
 	}
